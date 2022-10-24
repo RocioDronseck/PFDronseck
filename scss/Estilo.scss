@@ -1,0 +1,330 @@
+@keyframes scale-in-hor-center {
+    0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+@keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+    }
+}
+@keyframes roll-in-left {
+    0% {
+      -webkit-transform: translateX(-800px) rotate(-540deg);
+              transform: translateX(-800px) rotate(-540deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) rotate(0deg);
+              transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+}
+@keyframes tracking-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-700px);
+              transform: translateZ(-700px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+}
+@import "fuentes";
+@import "color";
+
+@mixin tamaño ($ancho,$alto) {
+    width:$ancho;
+    height:$alto;   
+}
+
+@mixin bordes ($bordeext,$bordeint) {
+    margin:$bordeext;
+    padding:$bordeint;   
+}
+
+* {
+    @include bordes (0,0);
+    box-sizing: border-box;
+}
+
+
+header {
+    nav {
+    @include tamaño(100%,auto);
+    background-color:$color-secundario;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    }
+
+    img {
+    margin-right: auto;
+    height: 40px
+    }
+}
+#iconoMenu {
+    color:$color-primario;
+    background-color: $color-primario;
+}
+
+#menuHorizontal {
+    display: flex;
+    list-style-type: none;
+    overflow: hidden;
+    gap: 5px;
+    float: right;
+    margin: 0%;
+
+    a {
+    @include tamaño(100%,auto );
+    text-decoration: none;
+    color:$color-primario;
+    background-color:$color-terciario;
+    font-size: 18px;
+    padding: 3px 3px;
+        &:hover {
+        background-color:$color-secundario;
+    }
+    }
+
+    li {
+    float: right;
+        a {
+    display: block;
+    text-align: center;
+        }
+    }
+
+
+}
+
+main {
+    background-color: $color-detalle;
+    a {
+        color:$color-detalle;
+        background-color:$color-secundario;
+        text-decoration: none;
+        text-align: left;
+        font-family: $fuente-primario;
+        font-size: 15px;
+        @include bordes (10px,5px);
+    }
+
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:$color-terciario;
+    font-size: 50px;
+    font-style: oblique;
+    font-family: $funte-titulos;
+    @include bordes (20px,20px);
+    width: 100%;
+}
+
+.scale-in-hor-center {
+    animation: scale-in-hor-center 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.imagenPcpal {
+    @include tamaño(100%,400px);
+    border-radius: 10px;
+}
+
+#servicios {
+    display: flex;
+    gap: 5px;
+    margin-top: 50px;
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @include bordes (5px,0px);
+        margin-bottom: 55px;
+        border: 2px solid $color-terciario;
+        a {
+            align-self: flex-end;
+        }
+    }
+}
+
+h2 {
+    color:$color-terciario;
+    font-family: $funte-titulos;
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+p {
+    color: #201a0cb0;
+    font-family: $fuente-primario;
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 15px;
+    padding: 10px;
+    flex-grow: 1;
+
+}
+
+.slide-top:hover {
+	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+}
+
+.roll-in-left {
+	        animation: roll-in-left 2s ease-out both;
+}
+
+.pie-pagina {
+    width: 100%;
+    background-color: $color-secundario;
+    margin: 100;
+    .grupo-1 {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        padding: 5px 0px;
+        .box {
+            figure {
+            @include tamaño(100%,100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 50px;
+            }
+            }
+            h2 {
+                color: $color-detalle;
+                margin-bottom: 5px;
+                font-size: 15px;
+                text-align: left;
+                font-family: $funte-titulos;
+            
+            }
+            p {
+                color: $color-detalle;
+                margin-bottom: 10px;
+                font-family: $fuente-primario;
+            }
+        }
+        .red-social {
+            a {
+            display: inline-block;
+            text-decoration: none;
+            @include tamaño(45px,45px);
+            line-height: 45px;
+            color:$color-detalle;
+            margin-right: 10px;
+            background-color:$color-terciario;
+            text-align: center;
+            transition: all 300ms ease;
+            &:hover {
+                color: $color-secundario;
+            }
+            }
+        }
+    }
+    .grupo-2 {
+        background-color: $color-terciario;
+        padding: 15px 10px;
+        text-align: center;
+        color: $color-detalle;
+        small {
+            font-size: 15px;
+        }
+    }
+}
+
+.izquierda {
+    text-align: left;
+}
+
+#conteiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+ 
+}
+
+.listaDestino {
+    flex: auto;
+    font-size: 15px;
+    font-family: $funte-titulos;
+    color: $color-secundario;
+    .Prov {
+        font-size: 20px;
+    }
+}
+
+.tracking-in-expand-fwd {
+	
+	        animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.formulario {
+    margin: 15px;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid $color-secundario;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid $color-secundario;
+    border-radius: 4px;
+
+}
+
+form {
+    label {
+    font-family: $funte-titulos;
+    font-size: 18px;
+    }
+}
+
+@import "responsive"
+
+
